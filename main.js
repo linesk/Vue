@@ -1,8 +1,9 @@
 var app = new Vue({
   el: "#app",
   data: {
-    name: "Ratchapoom",
-    code: "583070106-6",
-    description:"",
+    product: "Sock",
+    description: "Super Sock, You're able to fly with them",
+    image: "img/vmSocks-green-onWhite.jpg",
+    url: "#"
   }
 });
