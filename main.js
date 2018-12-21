@@ -3,21 +3,21 @@ var app = new Vue({
     data: {
         product: "Sock",
         description: "Super Sock, You're able to fly with them",
-        image: "img/vmSocks-green-onWhite.jpg",
         url: "#",
-        inventory: 0,
-        inStock: false,
+        selectedVariant: 0,
         onsale: true,
         details: ["80% Cotton", "20% polyester", "Gender-Natural"],
         variants: [{
                 variantsId: 2234,
                 variantColor: "Green",
-                variantImage: "img/vmSocks-green-onWhite.jpg"
+                variantImage: "img/vmSocks-green-onWhite.jpg",
+                variantInventory: 9,
             },
             {
                 variantsId: 2235,
                 variantColor: "Blue",
-                variantImage: "img/vmSocks-blue-onWhite.jpg"
+                variantImage: "img/vmSocks-blue-onWhite.jpg",
+                variantInventory: 0,
             }
         ],
         sizes: ["S", "M", "L", "XL"],
@@ -27,11 +27,19 @@ var app = new Vue({
         addToCart() {
             this.cart += 1;
         },
-        updateProduct(variantImage) {
-            this.image = variantImage;
+        updateProduct(index) {
+            this.selectedVariant = index;
         },
         removeFromCart() {
             this.cart -= 1;
+        }
+    },
+    computed: {
+        inStock() {
+            return this.variants[this.selectedVariant].variantInventory
+        },
+        image() {
+            return this.variants[this.selectedVariant].variantImage
         }
     }
 });
