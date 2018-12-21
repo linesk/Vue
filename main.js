@@ -5,7 +5,8 @@ var app = new Vue({
         description: "Super Sock, You're able to fly with them",
         image: "img/vmSocks-green-onWhite.jpg",
         url: "#",
-        inventory: 4,
+        inventory: 0,
+        inStock: false,
         onsale: true,
         details: ["80% Cotton", "20% polyester", "Gender-Natural"],
         variants: [{
